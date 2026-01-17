@@ -60,20 +60,20 @@ There are two roles:
 
 ### Admin
 - Can view leads
-- Can edit lead status
+- Can update lead status
 
 ### Agent
 - Can only view leads
-- Cannot edit lead status
+- Cannot update lead status
 
-Role is checked before showing actions like the Edit button.
+Role is checked before showing actions like the update button.
 
 ## Leads Module
 
 a. Shows list of leads with name, phone and status
 b. Has a dropdown to filter leads by status
 c. Data is tenant-specific
-d. Only Admin can edit lead status
+d. Only Admin can update lead status
 
 ## Call Logs Module
 
