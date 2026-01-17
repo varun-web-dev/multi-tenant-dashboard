@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { leadsData } from "../../data/leads";
+import "./LeadsList.css";
 
 const LeadsList = () => {
   const { tenant, role } = useAuth();
@@ -42,49 +43,56 @@ const LeadsList = () => {
 
 
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <h3>Leads</h3>
+    <div className="leads-container">
+  <h3 className="leads-title">Leads</h3>
 
-      <div style={{ marginBottom: "10px" }}>
-        <label>Status Filter: </label>
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-        >
-          <option value="all">All</option>
-          <option value="New">New</option>
-          <option value="Contacted">Contacted</option>
-          <option value="Converted">Converted</option>
-        </select>
-      </div>
+  <div className="filter-bar">
+    <label>Status Filter</label>
+    <select
+      value={statusFilter}
+      onChange={(e) => setStatusFilter(e.target.value)}
+    >
+      <option value="all">All</option>
+      <option value="New">New</option>
+      <option value="Contacted">Contacted</option>
+      <option value="Converted">Converted</option>
+    </select>
+  </div>
 
-      {/* List of leads */}
-      {filteredLeads.map((lead) => (
-        <div
-          key={lead.id}
-          style={{
-            border: "1px solid #ccc",
-            marginBottom: "8px",
-            padding: "8px",
-            borderRadius: "5px",
-          }}
-        >
-          <div><b>Name:</b> {lead.name}</div>
-          <div><b>Phone:</b> {lead.phone}</div>
-          <div><b>Status:</b> {lead.status}</div>
+  {filteredLeads.length === 0 && (
+    <p className="empty-state">No leads found.</p>
+  )}
 
-
-          {role === "Admin" && (
-            <button
-              style={{ marginTop: "5px" }}
-              onClick={() => handleStatusChange(lead.id)}
-            >
-              Update Status
-            </button>
-          )}
+  <div className="leads-list">
+    {filteredLeads.map((lead) => (
+      <div className="lead-card" key={lead.id}>
+        <div className="lead-row">
+          <span>Name</span>
+          <strong>{lead.name}</strong>
         </div>
-      ))}
-    </div>
+
+        <div className="lead-row">
+          <span>Phone</span>
+          <strong>{lead.phone}</strong>
+        </div>
+
+        <div className={`status ${lead.status.toLowerCase()}`}>
+          {lead.status}
+        </div>
+
+        {role === "Admin" && (
+          <button
+            className="update-btn"
+            onClick={() => handleStatusChange(lead.id)}
+          >
+            Update Status
+          </button>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 

@@ -1,0 +1,88 @@
+.leads-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.leads-title {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-bar select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.leads-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+.lead-card {
+  border: 1px solid #e5e7eb;
+  padding: 14px;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.lead-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.status.new {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.contacted {
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+.status.converted {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.update-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-btn:hover {
+  background: #1e40af;
+}
+
+.empty-state {
+  font-size: 14px;
+  color: #6b7280;
+}

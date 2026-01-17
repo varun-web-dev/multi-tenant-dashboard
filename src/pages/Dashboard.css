@@ -1,0 +1,21 @@
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.dashboard-meta {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.dashboard-section {
+  margin-top: 20px;
+}
